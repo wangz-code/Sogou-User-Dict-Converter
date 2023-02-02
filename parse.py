@@ -281,7 +281,7 @@ def DecryptPinyin(py_dataview):
     ps = ""
     for _ in range(n):
         p = ReadUint16(py)
-        ps += pinyin[p] + "'"
+        ps += pinyin[p] + " "
     return ps[:-1]
 
 
@@ -472,6 +472,6 @@ if __name__ == '__main__':
         word_base = usrdict.GetData(data_id, word_info.offset)
         # DecryptWordsEx
         word = DecryptWordsEx(word_base, word_info.p1, usr_header.p2, usr_header.p3)
-        fout.write(f'{word.string}\t{word_info.freq}\t{pys}\n')
+        fout.write(f'{word.string}\t{pys}\t{word_info.freq}\n')
         fout.flush()
     fout.close()
